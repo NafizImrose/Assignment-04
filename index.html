@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Tracker</title>
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- tailwind css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- daisyUI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <section class="w-8/12 mx-auto mt-16 pb-7 border-b-2 border-base-300">
+      <h1 class="text-2xl font-bold">Job Application Tracker</h1>
+      <div class="mother mt-3 grid grid-cols-3 gap-3">
+        <div class="child bg-base-300 rounded-2xl p-3">
+          <p class="text-[#323B49] text-sm">Total</p>
+          <p id="total" class="text-2xl font-bold">8</p>
+        </div>
+        <div class="child bg-base-300 rounded-2xl p-3">
+          <p class="text-[#323B49] text-sm">Interview</p>
+          <p id="interview" class="text-2xl font-bold text-[#10B981]">0</p>
+        </div>
+        <div class="child bg-base-300 rounded-2xl p-3">
+          <p class="text-[#323B49] text-sm">Rejected</p>
+          <p id="rejected" class="text-2xl font-bold text-[#EF4444]">0</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-8/12 mx-auto mt-7">
+      <div class="flex justify-between items-start">
+        <h1 class="text-2xl text-[#002C5C] font-bold mb-6">Available Jobs</h1>
+        <p class="text-[#002C5C]"><span>8</span> Jobs</p>
+      </div>
+      <div class="space-x-3 mb-4">
+        <button class="btn w-30">All</button>
+        <button class="btn w-30">Interview</button>
+        <button class="btn w-30">Rejected</button>
+      </div>
+    </section>
+
+    <section class="w-8/12 mx-auto p-6 border">
+      <h1>Mobile First Corp</h1>
+      <p>React Native Developer</p>
+      <p>Remote • Full-time • $130,000 - $175,000</p>
+      <div>
+        <p>NOT APPLIED</p>
+      </div>
+      <p>
+        Build cross-platform mobile applications using React Native. Work on
+        products used by millions of users worldwide.
+      </p>
+      <button>INTERVIEW</button>
+      <button>REJECTED</button>
+    </section>
+  </body>
+</html>
