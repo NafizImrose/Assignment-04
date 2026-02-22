@@ -400,38 +400,21 @@
       id="interview-section"
       class="w-8/12 mx-auto space-y-4 mb-16 hidden"
     >
-      <div class="bg-base-300 p-6">
+      <div
+        id="no-interview"
+        class="flex justify-center items-center bg-base-300 h-[400px] hidden"
+      >
         <!--  -->
-        <div class="flex justify-between items-center">
-          <div>
-            <h1 class="font-bold">Mobile First Corp</h1>
-            <p class="text-[#64748B]">React Native Developer</p>
+        <div class="text-center">
+          <div class="flex justify-center items-center">
+            <img src="images/text-file.png" alt="" />
           </div>
-          <button class="btn rounded-full">
-            <i class="fa-regular fa-trash-can"></i>
-          </button>
+          <h1 class="text-3xl text-[#002C5C] mt-5">No jobs available</h1>
+          <p class="text-[#64748B]">
+            Check back soon for new job opportunities
+          </p>
         </div>
-
         <!--  -->
-        <p class="text-[#64748B] my-5">
-          Remote • Full-time • $130,000 - $175,000
-        </p>
-        <div class="bg-slate-300 py-2 px-3 w-29 h-8 mb-2">
-          <p class="text-sm">NOT APPLIED</p>
-        </div>
-        <p class="text-[#64748B] mb-5">
-          Build cross-platform mobile applications using React Native. Work on
-          products used by millions of users worldwide.
-        </p>
-        <div class="flex space-x-2 mt-3">
-          <button
-            onclick="interviewButton(this)"
-            class="btn text-green-600 border-green-600"
-          >
-            INTERVIEW
-          </button>
-          <button class="btn text-red-600 border-red-600">REJECTED</button>
-        </div>
       </div>
     </section>
 
@@ -439,35 +422,22 @@
       id="rejected-section"
       class="w-8/12 mx-auto space-y-4 mb-16 hidden"
     >
-      <div class="bg-base-300 p-6">
+      <!--  -->
+      <div
+        id="no-rejected"
+        class="flex justify-center items-center bg-base-300 h-[400px] hidden"
+      >
         <!--  -->
-        <div class="flex justify-between items-center">
-          <div>
-            <h1 class="font-bold">Rejected</h1>
-            <p class="text-[#64748B]">React Native Developer</p>
+        <div class="text-center">
+          <div class="flex justify-center items-center">
+            <img src="images/text-file.png" alt="" />
           </div>
-          <button class="btn rounded-full">
-            <i class="fa-regular fa-trash-can"></i>
-          </button>
+          <h1 class="text-3xl text-[#002C5C] mt-5">No jobs available</h1>
+          <p class="text-[#64748B]">
+            Check back soon for new job opportunities
+          </p>
         </div>
-
         <!--  -->
-        <p class="text-[#64748B] my-5">
-          Remote • Full-time • $130,000 - $175,000
-        </p>
-        <div
-          class="bg-slate-300 py-2 px-3 flex justify-center items-center mb-2"
-        >
-          <p class="text-sm">NOT APPLIED</p>
-        </div>
-        <p class="text-[#64748B] mb-5">
-          Build cross-platform mobile applications using React Native. Work on
-          products used by millions of users worldwide.
-        </p>
-        <button class="btn text-green-600 border-green-600 mr-2">
-          INTERVIEW
-        </button>
-        <button class="btn text-red-600 border-red-600">REJECTED</button>
       </div>
     </section>
     <!-- js -->

@@ -18,12 +18,28 @@ function showOnly(value) {
     const interview = document.getElementById("interview");
     count.innerText = interview.innerText;
     count.classList.remove("hidden");
+    // no-jobs section add
+    const noJobs = document.getElementById("no-interview");
+    if (interview.innerText == "0") {
+      noJobs.classList.remove("hidden");
+    } else {
+      noJobs.classList.add("hidden");
+    }
+    // ******
   } else if (select.id == "rejected-section") {
     const box = document.getElementById("eight-jobs");
     box.innerText = "of 8 Jobs";
     const rejected = document.getElementById("rejected");
     count.innerText = rejected.innerText;
     count.classList.remove("hidden");
+    // no-job section add
+    const noJobs = document.getElementById("no-rejected");
+    if (rejected.innerText == "0") {
+      noJobs.classList.remove("hidden");
+    } else {
+      noJobs.classList.add("hidden");
+    }
+    // ******************
   } else {
     const box = document.getElementById("eight-jobs");
     box.innerText = "8 Jobs";
@@ -34,10 +50,6 @@ function showOnly(value) {
 function interviewButton(button) {
   const interviewCount = document.getElementById("interview");
   let number = Number(interviewCount.innerText);
-
-  if (number == 0) {
-    alert("no number");
-  }
 
   const section = document.getElementById("interview-section");
   const card = button.closest(".card");
@@ -78,10 +90,6 @@ function interviewButton(button) {
 function rejectButton(button) {
   const rejectedCount = document.getElementById("rejected");
   let number = Number(rejectedCount.innerText);
-
-  if (number == 0) {
-    alert("no number");
-  }
 
   const section = document.getElementById("rejected-section");
   const card = button.closest(".card");
