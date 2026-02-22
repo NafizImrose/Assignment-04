@@ -9,6 +9,26 @@ function showOnly(value) {
 
   const select = document.getElementById(value);
   select.classList.remove("hidden");
+
+  const count = document.getElementById("current-eight");
+
+  if (select.id == "interview-section") {
+    const box = document.getElementById("eight-jobs");
+    box.innerText = "of 8 Jobs";
+    const interview = document.getElementById("interview");
+    count.innerText = interview.innerText;
+    count.classList.remove("hidden");
+  } else if (select.id == "rejected-section") {
+    const box = document.getElementById("eight-jobs");
+    box.innerText = "of 8 Jobs";
+    const rejected = document.getElementById("rejected");
+    count.innerText = rejected.innerText;
+    count.classList.remove("hidden");
+  } else {
+    const box = document.getElementById("eight-jobs");
+    box.innerText = "8 Jobs";
+    count.classList.add("hidden");
+  }
 }
 
 function interviewButton(button) {
