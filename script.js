@@ -119,3 +119,8 @@ function rejectButton(button) {
   statusBox.classList.add("bg-red-500");
   statusBox.classList.add("text-white");
 }
+
+function deleteJob(button) {
+  const deleteElmn = button.closest(".card");
+  deleteElmn.remove();
+}
