@@ -42,8 +42,8 @@ function showOnly(value) {
     // ******************
   } else {
     const box = document.getElementById("eight-jobs");
-    box.innerText = "8 Jobs";
-    count.classList.add("hidden");
+    box.innerText = "Jobs";
+    //count.classList.add("hidden");
   }
 }
 
@@ -131,4 +131,19 @@ function rejectButton(button) {
 function deleteJob(button) {
   const deleteElmn = button.closest(".card");
   deleteElmn.remove();
+
+  const check = button.closest("#all-job-section");
+
+  if (check) {
+    return;
+  }
+
+  const countJobs = document.getElementById("current-eight").innerText;
+
+  let count = Number(countJobs);
+
+  count = count - 1;
+
+  document.getElementById("total").innerText = count;
+  document.getElementById("current-eight").innerText = count;
 }
