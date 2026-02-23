@@ -62,12 +62,19 @@ function interviewButton(button) {
     return;
   }
 
+  const rejectedCount = document.getElementById("rejected");
   if (text.innerText == "REJECTED") {
-    const rejectedCount = document.getElementById("rejected");
     let number = Number(rejectedCount.innerText);
     number = number - 1;
     rejectedCount.innerText = number;
     statusBox.classList.remove("bg-red-500");
+  }
+
+  const demo = document.getElementById("no-rejected");
+  if ((rejectedCount.innerText = "1")) {
+    demo.classList.remove("hidden");
+  } else {
+    demo.classList.add("hidden");
   }
 
   if (text.innerText == "NOT APPLIED") {
@@ -125,12 +132,19 @@ function rejectButton(button) {
     return;
   }
 
+  const interviewCount = document.getElementById("interview");
   if (text.innerText == "APPLIED") {
-    const interviewCount = document.getElementById("interview");
     let number = Number(interviewCount.innerText);
     number = number - 1;
     interviewCount.innerText = number;
     statusBox.classList.remove("bg-green-500");
+  }
+
+  const demo = document.getElementById("no-interview");
+  if ((interviewCount.innerText = "1")) {
+    demo.classList.remove("hidden");
+  } else {
+    demo.classList.add("hidden");
   }
 
   if (text.innerText == "NOT APPLIED") {
@@ -149,8 +163,8 @@ function rejectButton(button) {
       copyBox.classList.add("bg-red-500");
       copyBox.classList.add("text-white");
       copytext.innerText = "REJECTED";
-      const secondCopy = copy.cloneNode(true);
-      section.append(secondCopy);
+
+      section.append(copy);
       card.remove();
       number = number + 1;
       rejectedCount.innerText = number;
