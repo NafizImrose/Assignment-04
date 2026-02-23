@@ -71,7 +71,7 @@ function interviewButton(button) {
   }
 
   const demo = document.getElementById("no-rejected");
-  if ((rejectedCount.innerText = "1")) {
+  if (rejectedCount.innerText == "0") {
     demo.classList.remove("hidden");
   } else {
     demo.classList.add("hidden");
@@ -141,7 +141,7 @@ function rejectButton(button) {
   }
 
   const demo = document.getElementById("no-interview");
-  if ((interviewCount.innerText = "1")) {
+  if (interviewCount.innerText == "0") {
     demo.classList.remove("hidden");
   } else {
     demo.classList.add("hidden");
