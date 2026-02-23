@@ -47,188 +47,128 @@ function showOnly(value) {
   }
 }
 
-// function interviewButton(button) {
-//   const interviewCount = document.getElementById("interview");
-//   let number = Number(interviewCount.innerText);
-
-//   const section = document.getElementById("interview-section");
-//   const card = button.closest(".card");
-
-//   const statusBox = card.querySelector(".w-29");
-//   const text = statusBox.querySelector("p");
-
-//   //   checking for duplicate append
-//   if (text.innerText == "APPLIED") {
-//     return;
-//   }
-
-//   if (text.innerText == "REJECTED") {
-//     const rejectedCount = document.getElementById("rejected");
-//     let number = Number(rejectedCount.innerText);
-//     number = number - 1;
-//     rejectedCount.innerText = number;
-//     statusBox.classList.remove("bg-red-500");
-//   }
-
-//   if (text.innerText == "NOT APPLIED") {
-//     statusBox.classList.remove("bg-slate-300");
-//   }
-
-//   if (section && card) {
-//     // const copy = card.cloneNode(false);
-
-//     //badge proparty added for interview section
-//     const copyBox = copy.querySelector(".w-29");
-//     const copytext = copyBox.querySelector("p");
-
-//     if (copytext.innerText == "REJECTED") {
-//       copyBox.classList.remove("bg-red-500");
-//       copyBox.classList.add("bg-green-500");
-//       copyBox.classList.add("text-white");
-//       copytext.innerText = "APPLIED";
-//       section.append(copyBox);
-//     }
-
-//     copyBox.classList.remove("bg-slate-300");
-//     copyBox.classList.add("bg-green-500");
-//     copyBox.classList.add("text-white");
-//     copytext.innerText = "APPLIED";
-
-//     section.append(card);
-//     number = number + 1;
-
-//     interviewCount.innerText = number;
-//   }
-
-//   text.innerText = "APPLIED";
-
-//   statusBox.classList.add("bg-green-500");
-//   statusBox.classList.add("text-white");
-// }
-
 function interviewButton(button) {
-  const interviewSection = document.getElementById("interview-section");
-  const rejectedSection = document.getElementById("rejected-section");
-
   const interviewCount = document.getElementById("interview");
-  const rejectedCount = document.getElementById("rejected");
+  let number = Number(interviewCount.innerText);
 
+  const section = document.getElementById("interview-section");
   const card = button.closest(".card");
+
   const statusBox = card.querySelector(".w-29");
   const text = statusBox.querySelector("p");
 
-  // Stop if already applied
-  if (text.innerText === "APPLIED") {
+  //   checking for duplicate append
+  if (text.innerText == "APPLIED") {
     return;
   }
 
-  // If card is inside rejected section
-  if (rejectedSection.contains(card)) {
-    let rCount = Number(rejectedCount.innerText);
-    rejectedCount.innerText = rCount - 1;
+  if (text.innerText == "REJECTED") {
+    const rejectedCount = document.getElementById("rejected");
+    let number = Number(rejectedCount.innerText);
+    number = number - 1;
+    rejectedCount.innerText = number;
+    statusBox.classList.remove("bg-red-500");
   }
 
-  // Remove old colors
-  statusBox.classList.remove("bg-red-500", "bg-slate-300");
+  if (text.innerText == "NOT APPLIED") {
+    statusBox.classList.remove("bg-slate-300");
+  }
 
-  // Add applied styles
-  statusBox.classList.add("bg-green-500", "text-white");
+  if (section && card) {
+    const copy = card.cloneNode(true);
+
+    //badge proparty added for interview section
+    const copyBox = copy.querySelector(".w-29");
+    const copytext = copyBox.querySelector("p");
+
+    if (copytext.innerText == "REJECTED") {
+      copyBox.classList.remove("bg-red-500");
+      copyBox.classList.add("bg-green-500");
+      copyBox.classList.add("text-white");
+      copytext.innerText = "APPLIED";
+      section.append(copy);
+      number = number + 1;
+      interviewCount.innerText = number;
+      return;
+    }
+
+    copyBox.classList.remove("bg-slate-300");
+    copyBox.classList.add("bg-green-500");
+    copyBox.classList.add("text-white");
+    copytext.innerText = "APPLIED";
+
+    section.append(copy);
+    number = number + 1;
+
+    interviewCount.innerText = number;
+  }
+
   text.innerText = "APPLIED";
 
-  // Move the original card
-  interviewSection.append(card);
-
-  // Increase interview count
-  let iCount = Number(interviewCount.innerText);
-  interviewCount.innerText = iCount + 1;
+  statusBox.classList.add("bg-green-500");
+  statusBox.classList.add("text-white");
 }
 
 function rejectButton(button) {
-  const rejectedSection = document.getElementById("rejected-section");
-  const interviewSection = document.getElementById("interview-section");
-
   const rejectedCount = document.getElementById("rejected");
-  const interviewCount = document.getElementById("interview");
+  let number = Number(rejectedCount.innerText);
 
+  const section = document.getElementById("rejected-section");
   const card = button.closest(".card");
+
   const statusBox = card.querySelector(".w-29");
   const text = statusBox.querySelector("p");
 
-  // Stop if already rejected
-  if (text.innerText === "REJECTED") {
+  //   checking for duplicate append
+  if (text.innerText == "REJECTED") {
     return;
   }
 
-  // If card was in interview section
-  if (interviewSection.contains(card)) {
-    let iCount = Number(interviewCount.innerText);
-    interviewCount.innerText = iCount - 1;
+  if (text.innerText == "APPLIED") {
+    const interviewCount = document.getElementById("interview");
+    let number = Number(interviewCount.innerText);
+    number = number - 1;
+    interviewCount.innerText = number;
+    statusBox.classList.remove("bg-green-500");
   }
 
-  // Remove previous colors
-  statusBox.classList.remove("bg-green-500", "bg-slate-300");
+  if (text.innerText == "NOT APPLIED") {
+    statusBox.classList.remove("bg-slate-300");
+  }
 
-  // Add rejected styles
-  statusBox.classList.add("bg-red-500", "text-white");
+  if (section && card) {
+    const copy = card.cloneNode(true);
+
+    //badge proparty added for reject section
+    const copyBox = copy.querySelector(".w-29");
+    const copytext = copyBox.querySelector("p");
+
+    if (copytext.innerText == "APPLIED") {
+      copyBox.classList.remove("bg-green-500");
+      copyBox.classList.add("bg-red-500");
+      copyBox.classList.add("text-white");
+      copytext.innerText = "REJECTED";
+      section.append(copy);
+      number = number + 1;
+      rejectedCount.innerText = number;
+      return;
+    }
+    copyBox.classList.remove("bg-slate-300");
+    copyBox.classList.add("bg-red-500");
+    copyBox.classList.add("text-white");
+    copytext.innerText = "REJECTED";
+
+    section.append(copy);
+    number = number + 1;
+    rejectedCount.innerText = number;
+  }
+
   text.innerText = "REJECTED";
 
-  // Move the original card
-  rejectedSection.append(card);
-
-  // Increase rejected count
-  let rCount = Number(rejectedCount.innerText);
-  rejectedCount.innerText = rCount + 1;
+  statusBox.classList.remove("bg-slate-300");
+  statusBox.classList.add("bg-red-500");
+  statusBox.classList.add("text-white");
 }
-
-// function rejectButton(button) {
-//   const rejectedCount = document.getElementById("rejected");
-//   let number = Number(rejectedCount.innerText);
-
-//   const section = document.getElementById("rejected-section");
-//   const card = button.closest(".card");
-
-//   const statusBox = card.querySelector(".w-29");
-//   const text = statusBox.querySelector("p");
-
-//   //   checking for duplicate append
-//   if (text.innerText == "REJECTED") {
-//     return;
-//   }
-
-//   if (text.innerText == "APPLIED") {
-//     const interviewCount = document.getElementById("interview");
-//     let number = Number(interviewCount.innerText);
-//     number = number - 1;
-//     interviewCount.innerText = number;
-//     statusBox.classList.remove("bg-green-500");
-//   }
-
-//   if (text.innerText == "NOT APPLIED") {
-//     statusBox.classList.remove("bg-slate-300");
-//   }
-
-//   if (section && card) {
-//     const copy = card.cloneNode(true);
-
-//     //badge proparty added for reject section
-//     const copyBox = copy.querySelector(".w-29");
-//     const copytext = copyBox.querySelector("p");
-//     copyBox.classList.remove("bg-slate-300");
-//     copyBox.classList.add("bg-red-500");
-//     copyBox.classList.add("text-white");
-//     copytext.innerText = "REJECTED";
-
-//     section.append(copy);
-//     number = number + 1;
-//     rejectedCount.innerText = number;
-//   }
-
-//   text.innerText = "REJECTED";
-
-//   statusBox.classList.remove("bg-slate-300");
-//   statusBox.classList.add("bg-red-500");
-//   statusBox.classList.add("text-white");
-// }
 
 function deleteJob(button) {
   const deleteElmn = button.closest(".card");
