@@ -44,6 +44,7 @@ function showOnly(value) {
   } else {
     const box = document.getElementById("eight-jobs");
     box.innerText = "Jobs";
+    count.innerText = total;
     //count.classList.add("hidden");
   }
 }
@@ -204,32 +205,6 @@ function rejectButton(button) {
   statusBox.classList.add("text-white");
 }
 
-// function deleteJob(button) {
-//   const deleteElmn = button.closest("#all-job-section .card");
-//   deleteElmn.remove();
-
-//   const deleteElmn1 = button.closest("#interview-section .card");
-//   deleteElmn1.remove();
-
-//   const deleteElmn2 = button.closest("#rejected-section .card");
-//   deleteElmn2.remove();
-
-//   const check = button.closest("#all-job-section");
-
-//   if (check) {
-//     return;
-//   }
-
-//   const countJobs = document.getElementById("current-eight").innerText;
-
-//   let count = Number(countJobs);
-
-//   count = count - 1;
-
-//   document.getElementById("total").innerText = count;
-//   document.getElementById("current-eight").innerText = count;
-// }
-
 function deleteJob(button) {
   const card = button.closest(".card");
   const id = card.dataset.id;
@@ -238,8 +213,8 @@ function deleteJob(button) {
   let totalNumber = Number(total.innerText);
   totalNumber = totalNumber - 1;
   total.innerText = totalNumber;
-  const place = document.getElementById("current-eight");
-  place.innerText = totalNumber;
+  //   const place = document.getElementById("current-eight");
+  //   place.innerText = totalNumber;
 
   const allCards = document.querySelectorAll(`.card[data-id="${id}"]`);
 
@@ -277,5 +252,23 @@ function deleteJob(button) {
         abc.classList.add("hidden");
       }
     }
+  }
+
+  const current = document.getElementById("current-eight");
+  const label = document.getElementById("eight-jobs");
+
+  if (
+    !document.getElementById("all-job-section").classList.contains("hidden")
+  ) {
+    current.innerText = totalNumber;
+    label.innerText = "Jobs";
+  } else if (
+    !document.getElementById("interview-section").classList.contains("hidden")
+  ) {
+    current.innerText = interviewCount;
+    label.innerText = "of " + totalNumber + " Jobs";
+  } else {
+    current.innerText = rejectedCount;
+    label.innerText = "of " + totalNumber + " Jobs";
   }
 }
