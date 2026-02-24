@@ -233,6 +233,13 @@ function deleteJob(button) {
   const card = button.closest(".card");
   const id = card.dataset.id;
 
+  const total = document.getElementById("total");
+  let totalNumber = Number(total.innerText);
+  totalNumber = totalNumber - 1;
+  total.innerText = totalNumber;
+  const place = document.getElementById("eight-jobs");
+  place.innerText = totalNumber;
+
   const allCards = document.querySelectorAll(`.card[data-id="${id}"]`);
 
   const interview = document.getElementById("interview");
@@ -241,6 +248,7 @@ function deleteJob(button) {
   let rejectedCount = Number(rejected.innerText);
 
   let flag = true;
+  let flag1 = true;
   for (let i = 0; i < allCards.length; i++) {
     const box = allCards[i].querySelector(".w-29");
     const text = box.querySelector("p").innerText;
@@ -257,10 +265,10 @@ function deleteJob(button) {
       } else {
         abc.classList.add("hidden");
       }
-    } else if (text == "REJECTED" && flag) {
+    } else if (text == "REJECTED" && flag1) {
       rejectedCount = rejectedCount - 1;
       rejected.innerText = rejectedCount;
-      flag = false;
+      flag1 = false;
       const abc = document.getElementById("no-rejected");
       if (rejectedCount == 0) {
         abc.classList.remove("hidden");
