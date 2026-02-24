@@ -235,7 +235,38 @@ function deleteJob(button) {
 
   const allCards = document.querySelectorAll(`.card[data-id="${id}"]`);
 
+  const interview = document.getElementById("interview");
+  const rejected = document.getElementById("rejected");
+  let interviewCount = Number(interview.innerText);
+  let rejectedCount = Number(rejected.innerText);
+
+  let flag = true;
   for (let i = 0; i < allCards.length; i++) {
+    const box = allCards[i].querySelector(".w-29");
+    const text = box.querySelector("p").innerText;
+
     allCards[i].remove();
+
+    if (text == "APPLIED" && flag) {
+      interviewCount = interviewCount - 1;
+      interview.innerText = interviewCount;
+      flag = false;
+      const abc = document.getElementById("no-interview");
+      if (interviewCount == 0) {
+        abc.classList.remove("hidden");
+      } else {
+        abc.classList.add("hidden");
+      }
+    } else if (text == "REJECTED" && flag) {
+      rejectedCount = rejectedCount - 1;
+      rejected.innerText = rejectedCount;
+      flag = false;
+      const abc = document.getElementById("no-rejected");
+      if (rejectedCount == 0) {
+        abc.classList.remove("hidden");
+      } else {
+        abc.classList.add("hidden");
+      }
+    }
   }
 }
