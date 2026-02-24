@@ -61,6 +61,11 @@ function interviewButton(button) {
   if (text.innerText == "APPLIED") {
     return;
   }
+  // choose eiter interview or rejected button
+  if (text.innerText == "REJECTED" && button.closest("#all-job-section")) {
+    alert("Choose either Interview or Rejected here");
+    return;
+  }
 
   const rejectedCount = document.getElementById("rejected");
   if (text.innerText == "REJECTED") {
@@ -97,6 +102,9 @@ function interviewButton(button) {
       card.remove();
       number = number + 1;
       interviewCount.innerText = number;
+      //count update to available jobs
+      const abc = document.getElementById("current-eight");
+      abc.innerText = rejectedCount.innerText;
       return;
     }
 
@@ -129,6 +137,11 @@ function rejectButton(button) {
 
   //   checking for duplicate append
   if (text.innerText == "REJECTED") {
+    return;
+  }
+  // choose eiter interview or rejected button
+  if (text.innerText == "APPLIED" && button.closest("#all-job-section")) {
+    alert("Choose either Interview or Rejected here");
     return;
   }
 
@@ -168,6 +181,9 @@ function rejectButton(button) {
       card.remove();
       number = number + 1;
       rejectedCount.innerText = number;
+      //count update to available jobs
+      const abc = document.getElementById("current-eight");
+      abc.innerText = interviewCount.innerText;
       return;
     }
     copyBox.classList.remove("bg-slate-300");
