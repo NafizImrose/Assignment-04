@@ -11,10 +11,11 @@ function showOnly(value) {
   select.classList.remove("hidden");
 
   const count = document.getElementById("current-eight");
+  const total = document.getElementById("total").innerText;
 
   if (select.id == "interview-section") {
     const box = document.getElementById("eight-jobs");
-    box.innerText = "of 8 Jobs";
+    box.innerText = "of " + total + " Jobs";
     const interview = document.getElementById("interview");
     count.innerText = interview.innerText;
     count.classList.remove("hidden");
@@ -28,7 +29,7 @@ function showOnly(value) {
     // ******
   } else if (select.id == "rejected-section") {
     const box = document.getElementById("eight-jobs");
-    box.innerText = "of 8 Jobs";
+    box.innerText = "of " + total + " Jobs";
     const rejected = document.getElementById("rejected");
     count.innerText = rejected.innerText;
     count.classList.remove("hidden");
@@ -237,7 +238,7 @@ function deleteJob(button) {
   let totalNumber = Number(total.innerText);
   totalNumber = totalNumber - 1;
   total.innerText = totalNumber;
-  const place = document.getElementById("eight-jobs");
+  const place = document.getElementById("current-eight");
   place.innerText = totalNumber;
 
   const allCards = document.querySelectorAll(`.card[data-id="${id}"]`);
