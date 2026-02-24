@@ -203,22 +203,39 @@ function rejectButton(button) {
   statusBox.classList.add("text-white");
 }
 
+// function deleteJob(button) {
+//   const deleteElmn = button.closest("#all-job-section .card");
+//   deleteElmn.remove();
+
+//   const deleteElmn1 = button.closest("#interview-section .card");
+//   deleteElmn1.remove();
+
+//   const deleteElmn2 = button.closest("#rejected-section .card");
+//   deleteElmn2.remove();
+
+//   const check = button.closest("#all-job-section");
+
+//   if (check) {
+//     return;
+//   }
+
+//   const countJobs = document.getElementById("current-eight").innerText;
+
+//   let count = Number(countJobs);
+
+//   count = count - 1;
+
+//   document.getElementById("total").innerText = count;
+//   document.getElementById("current-eight").innerText = count;
+// }
+
 function deleteJob(button) {
-  const deleteElmn = button.closest(".card");
-  deleteElmn.remove();
+  const card = button.closest(".card");
+  const id = card.dataset.id;
 
-  const check = button.closest("#all-job-section");
+  const allCards = document.querySelectorAll(`.card[data-id="${id}"]`);
 
-  if (check) {
-    return;
+  for (let i = 0; i < allCards.length; i++) {
+    allCards[i].remove();
   }
-
-  const countJobs = document.getElementById("current-eight").innerText;
-
-  let count = Number(countJobs);
-
-  count = count - 1;
-
-  document.getElementById("total").innerText = count;
-  document.getElementById("current-eight").innerText = count;
 }
