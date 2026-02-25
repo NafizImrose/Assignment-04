@@ -30,7 +30,7 @@
   </head>
   <body>
     <section
-      class="w-11/12 md:w-10/12 lg:w-8/12 mx-auto mt-16 pb-7 border-b-2 border-base-300"
+      class="w-11/12 sticky top-0 z-10 md:w-10/12 lg:w-8/12 mx-auto mt-16 pb-7 border-b-2 border-base-300 bg-base-100"
     >
       <h1 class="text-2xl font-bold">Job Application Tracker</h1>
       <div class="mother mt-3 grid grid-cols-3 gap-3">
@@ -58,18 +58,21 @@
       </div>
       <div class="space-x-3 mb-4">
         <button
+          id="all"
           onclick="showOnly('all-job-section')"
-          class="btn btn-info btn-soft w-20 lg:w-30 tab-btn"
+          class="btn btn-info btn-soft w-20 lg:w-30"
         >
           All
         </button>
         <button
+          id="inter"
           onclick="showOnly('interview-section')"
           class="btn btn-success btn-soft w-20 lg:w-30"
         >
           Interview
         </button>
         <button
+          id="rej"
           onclick="showOnly('rejected-section')"
           class="btn btn-error btn-soft w-20 lg:w-30"
         >

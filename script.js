@@ -1,3 +1,12 @@
+const allButtonActiveInit = true;
+const checkActive = document.getElementById("all");
+// keeping all' active initially
+if (allButtonActiveInit) {
+  checkActive.classList.add("btn-active");
+  allButtonActiveInit = false;
+} else {
+  checkActive.classList.remove("btn-active");
+}
 function showOnly(value) {
   const allJobs = document.getElementById("all-job-section");
   const interviewJobs = document.getElementById("interview-section");
@@ -9,7 +18,28 @@ function showOnly(value) {
 
   const select = document.getElementById(value);
   select.classList.remove("hidden");
+  //   toggle effect added
+  const demo1 = document.getElementById("all");
+  const demo2 = document.getElementById("inter");
+  const demo3 = document.getElementById("rej");
 
+  if (select.id == "all-job-section") {
+    demo2.classList.remove("btn-active");
+    demo3.classList.remove("btn-active");
+    demo1.classList.add("btn-active");
+  } else if (select.id == "interview-section") {
+    demo1.classList.remove("btn-active");
+    demo3.classList.remove("btn-active");
+    // demo.classList.remove("btn-active");
+    demo2.classList.add("btn-active");
+  } else if (select.id == "rejected-section") {
+    demo1.classList.remove("btn-active");
+    demo2.classList.remove("btn-active");
+    // demo.classList.remove("btn-active");
+    demo3.classList.add("btn-active");
+  }
+
+  // *****************************************
   const count = document.getElementById("current-eight");
   const total = document.getElementById("total").innerText;
 
